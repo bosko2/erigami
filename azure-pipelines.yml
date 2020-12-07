@@ -1,7 +1,0 @@
-# SSH
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'Server'
-    runOptions: 'commands'
-    commands: 'cd /home/azureuser/erigami && git pull'
-    readyTimeout: '20000'
