@@ -1,56 +1,30 @@
 package node
 
-/*
-* TODO: TEST!
- */
-
 import (
-	"bytes"
-	"notabug.org/bosko/erigami/pkg/nodetyp"
-	"text/template"
+	"fmt"
 )
 
-//type for a node(command)
 type Node struct {
-	Typ  nodetyp.NodeType
-	Nin  *[]Node
-	in   interface{}
-	nout *[]Node
-	out  interface{}
-	Code string
+	Typ NodeType
+	in  []interface{}
 }
 
-//adds output if it is valid
-func (this *Node) AddOutput(o int, i int, n *Node) bool {
-	if this.Typ.Nout[o].Name == n.Typ.Name && n.TestInput(i, this) {
-		a := *(this.nout)
-		a[o] = *n
-		this.nout = &a
-		b := *(n.Nin)
-		b[i] = *this
-		n.Nin = &b
-		return true
+func NewNode(nodeType NodeType, in []interface{}) Node {
+	for i, r := range in {
+		if Rtype(r) != nodeType.In[i] {
+			panic(fmt.Sprintf("The type is wrong on input %d ", i))
+		}
 	}
-	return false
+	return Node{
+		Typ: nodeType,
+		in:  in,
+	}
 }
 
-//tests if input is valid
-func (this *Node) TestInput(i int, n *Node) bool {
-	if this.Typ.Nin[i].Name == n.Typ.Name {
-		return true
-	}
-	return false
+func (n Node) Run() []interface{} {
+	return n.Typ.Run(n.in)
 }
 
-func (this *Node) GenCode() {
-	t, err := template.ParseFiles(this.Typ.Tpath)
-	if err != nil {
-		panic(err)
-	}
-	var b bytes.Buffer
-	err = t.Execute(&b, *this)
-	if err != nil {
-		panic(err)
-	}
-	this.Code = b.String()
+func FastRun(nodeType NodeType, in []interface{}) []interface{} {
+	return NewNode(nodeType, in).Run()
 }
