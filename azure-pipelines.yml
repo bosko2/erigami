@@ -1,0 +1,7 @@
+# SSH
+# Run shell commands or a script on a remote machine using SSH
+- task: "SSH@0"
+  inputs:
+    sshEndpoint: "Server"
+    runOptions: 'inline'
+    inline: "cd /home/azureuser/erigami && git pull"
