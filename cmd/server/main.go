@@ -1,6 +1,6 @@
 package main
 
-//main function for the app :TODO
+//main function for the server :TODO
 func main() {
 
 }
