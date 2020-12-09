@@ -9,5 +9,4 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'ssh -i erigami_key\ \(1\).pem azureuser@erigami.westeurope.cloudapp.azure.com ''cd erigami && git pull'''
-    useGlobalConfig: true
     failOnStandardError: true
