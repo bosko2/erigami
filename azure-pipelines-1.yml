@@ -1,0 +1,12 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure for Students(cb060a7a-39a2-4d25-b4c6-f74dadf0b384)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'ssh -i erigami_key\ \(1\).pem azureuser@erigami.westeurope.cloudapp.azure.com ''cd erigami && git pull'''
+    failOnStandardError: true
