@@ -1,3 +1,0 @@
-package nodetypes
-
-const Arr

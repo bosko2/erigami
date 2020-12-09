@@ -13,10 +13,9 @@ import (
 )
 
 //explain what it does here in one line
-func Name() node.NodeType {
+types["Name"]= node.NodeType {
 	return node.NodeType{
-		Name: "Name",
-		In:   node.Rtype((/*type for input goes here"*/)(nil),(/*secons type*/)(nil)/*...*/)),
+		In:   node.Rtype((/*type for input goes here"*/int)(nil),(int/*secons type*/)(nil)/*...*/)),
 		Out:  node.Rtype(/*same as input*/), 
 		/*In and Out can be nil*/
 		Vrun: func(value []interface{}) []interface{

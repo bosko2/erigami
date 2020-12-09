@@ -4,7 +4,6 @@ import "reflect"
 
 //Node type definition( restrictions and data)
 type NodeType struct {
-	Name string
 	In   []reflect.Type
 	Out  []reflect.Type
 	Vrun func(value []interface{}) []interface{}
