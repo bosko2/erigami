@@ -16,9 +16,9 @@ func RunGlobal(data []YamlDat) {
 		var tren Node = NewNode(nodetypes.Types[d.typname], outs[i])
 		inter := tren.Run()
 		for y, c := range d.out {
-			for z, d := range c {
-				if d != int(nil) {
-					outs[y][z] = inter[z]
+			for z, p := range c {
+				if p != int(nil) {
+					outs[y][z] = inter[p]
 				}
 			}
 		}
