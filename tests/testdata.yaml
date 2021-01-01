@@ -1,0 +1,11 @@
+- Typname: "AskForString"
+  Out:
+    1: [ 0 ]
+- Typname: "Print"
+- Typname: "AskForString"
+  Out:
+    4: [ 0 ]
+- Typname: "AskForString"
+  Out:
+    4: [ 0 ]
+- Typname: "Print"
